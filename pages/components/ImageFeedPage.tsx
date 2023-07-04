@@ -22,45 +22,46 @@ const ImageFeed: React.FC<ImageProps> = ({ characters, page, totalPages }) => {
         Rick and Morty Characters
       </Typography>
       <Grid container spacing={3}>
-        {characters.map((characterInfo) => (
-          <Grid item xs={12} sm={6} md={3} key={characterInfo.id}>
-            <Paper elevation={8}>
-              <Box
-                sx={{
-                  backgroundColor: "white",
-                  "&:hover": {
-                    backgroundColor: "#1b5e20",
-                    transform: "scale(1.08)",
-                    cursor: "pointer",
-                  },
-                }}
-              >
+        {characters &&
+          characters.map((characterInfo) => (
+            <Grid item xs={12} sm={6} md={3} key={characterInfo.id}>
+              <Paper elevation={8}>
                 <Box
                   sx={{
-                    position: "relative",
-                    width: "100%",
-                    height: 0,
-                    paddingTop: "100%",
+                    backgroundColor: "white",
+                    "&:hover": {
+                      backgroundColor: "#1b5e20",
+                      transform: "scale(1.08)",
+                      cursor: "pointer",
+                    },
                   }}
                 >
-                  <Image
-                    src={characterInfo.image}
-                    alt={characterInfo.name}
-                    layout="fill"
-                    objectFit="cover"
-                    placeholder="blur"
-                    blurDataURL={characterInfo.image}
-                  />
+                  <Box
+                    sx={{
+                      position: "relative",
+                      width: "100%",
+                      height: 0,
+                      paddingTop: "100%",
+                    }}
+                  >
+                    <Image
+                      src={characterInfo.image}
+                      alt={characterInfo.name}
+                      layout="fill"
+                      objectFit="cover"
+                      placeholder="blur"
+                      blurDataURL={characterInfo.image}
+                    />
+                  </Box>
+                  <Box p={2}>
+                    <Typography variant="subtitle1" align="center">
+                      {characterInfo.name}
+                    </Typography>
+                  </Box>
                 </Box>
-                <Box p={2}>
-                  <Typography variant="subtitle1" align="center">
-                    {characterInfo.name}
-                  </Typography>
-                </Box>
-              </Box>
-            </Paper>
-          </Grid>
-        ))}
+              </Paper>
+            </Grid>
+          ))}
       </Grid>
       <Pagination
         count={totalPages}
