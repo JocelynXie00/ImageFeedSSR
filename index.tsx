@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 
-import { HomeProps } from "./pages/Interface/interfaces";
+import { HomeProps } from "./Interface/interfaces";
 import ImageFeed from "./pages/components/ImageFeedPage";
 
 const Home: React.FC<HomeProps> = ({ characters, page, totalPages, error }) => {

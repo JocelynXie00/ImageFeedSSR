@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
-import { ImageProps } from "../Interface/interfaces";
+import { ImageProps } from "../../Interface/interfaces";
 
 import styles from "../../styles/ImageFeedPage.module.css";
 import { Grid, Paper, Box, Typography, Pagination } from "@mui/material";
