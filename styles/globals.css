@@ -17,7 +17,6 @@
 }
 
 body {
-  display: flex;
   margin: 2%;
   color: 0, 0, 0;
   background: rgb(var(--background-start-rgb));

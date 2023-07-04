@@ -72,6 +72,9 @@ const ImageFeed: React.FC<ImageProps> = ({ characters, page, totalPages }) => {
         showLastButton
         size="large"
       />
+      <Typography variant="h6" component="div" align="center">
+        <span>&copy;</span> Lynne Xie
+      </Typography>
     </div>
   );
 };
