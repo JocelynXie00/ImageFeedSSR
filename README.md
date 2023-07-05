@@ -1,4 +1,8 @@
 This is a Image Feed App based on the mock api:  https://rickandmortyapi.com/api/character using Next.js and leveraging its server-side rendering feature.
+
+## Deploy on Vercel
+Has been deployed and Open https://image-feed-ssr.vercel.app/ to check it out.
+
 ## Tech Stack:
 #### TypeScript
 #### framework: Next.js, React.js
@@ -18,5 +22,3 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Deploy on Vercel
-Has been deployed and Open https://image-feed-ssr.vercel.app/ to check it out.
