@@ -21,7 +21,7 @@ const ImageFeed: React.FC<ImageProps> = ({ characters, page, totalPages }) => {
       <Typography variant="h5" component="div" align="center">
         Rick and Morty Characters
       </Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={6}>
         {characters &&
           characters.map((characterInfo) => (
             <Grid item xs={12} sm={6} md={3} key={characterInfo.id}>
@@ -70,9 +70,9 @@ const ImageFeed: React.FC<ImageProps> = ({ characters, page, totalPages }) => {
         shape="circular"
         showFirstButton
         showLastButton
-        size="large"
+        size="small"
       />
-      <Typography variant="h6" component="div" align="center">
+      <Typography component="div" align="center">
         <span>&copy;</span> Lynne Xie
       </Typography>
     </div>

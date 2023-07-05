@@ -5,7 +5,7 @@ Has been deployed and Open https://image-feed-ssr.vercel.app/ to check it out.
 
 ## Tech Stack:
 #### TypeScript
-#### framework: Next.js, React.js
+#### framework: Next.js (page router), React.js (v18)
 #### Styling: material ui, css modules
 
 ## Getting Started with local deployment and run:
@@ -21,4 +21,5 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 
