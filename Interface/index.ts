@@ -37,4 +37,5 @@ export interface DetailProps {
   status: string;
   species: string;
   episodeInfo: EpisodeInfo[];
+  error: string;
 }

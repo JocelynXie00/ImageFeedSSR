@@ -10,7 +10,11 @@ const Detail: React.FC<DetailProps> = ({
   status,
   species,
   episodeInfo,
+  error,
 }) => {
+  if (error) {
+    return <div> {error}</div>;
+  }
   return (
     <div className={styles.detail}>
       <div className={styles.detailCard}>
@@ -20,11 +24,12 @@ const Detail: React.FC<DetailProps> = ({
       </div>
       <div className={styles.detailEpisodes}>
         <div className={styles.detailEpisodesTitle}> Episodes:</div>
-        {episodeInfo.map(({ name, air_date, episode }) => (
-          <div>
-            {episode}, {name},
-          </div>
-        ))}
+        {episodeInfo &&
+          episodeInfo.map(({ name, air_date, episode }) => (
+            <div>
+              {episode}, {name},
+            </div>
+          ))}
       </div>
     </div>
   );
@@ -34,32 +39,49 @@ const Detail: React.FC<DetailProps> = ({
 export const getServerSideProps: GetServerSideProps<DetailProps> = async (
   context
 ) => {
-  const desId = context.query.id;
-  const response = await fetch(
-    `https://rickandmortyapi.com/api/character/${desId}`
-  );
-  const data = await response.json();
+  try {
+    const desId = context.query.id;
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/${desId}`
+    );
+    const data = await response.json();
 
-  const { id, name, image, status, species, episode } = data;
+    const { id, name, image, status, species, episode } = data;
 
-  const multiEpi = episode
-    .map((path: string) => path.split("/").pop())
-    .join(",");
-  const episodeRes = await fetch(
-    `https://rickandmortyapi.com/api/episode/${multiEpi}`
-  );
-  const episodeInfo = await episodeRes.json();
-
-  return {
-    props: {
-      id,
-      name,
-      image,
-      status,
-      species,
-      episodeInfo,
-    },
-  };
+    const multiEpi = episode
+      .map((path: string) => path.split("/").pop())
+      .join(",");
+    const episodeRes = await fetch(
+      `https://rickandmortyapi.com/api/episode/${multiEpi}`
+    );
+    let episodeInfo = await episodeRes.json();
+    if (multiEpi.split(",").length <= 1) {
+      episodeInfo = [episodeInfo];
+    }
+    return {
+      props: {
+        id,
+        name,
+        image,
+        status,
+        species,
+        episodeInfo,
+        error: "",
+      },
+    };
+  } catch {
+    return {
+      props: {
+        id: 0,
+        name: "",
+        image: "",
+        status: "",
+        species: "",
+        episodeInfo: [],
+        error: "Something went wrong",
+      },
+    };
+  }
 };
 
 export default Detail;
