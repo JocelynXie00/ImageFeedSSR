@@ -1,0 +1,24 @@
+.detail {
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+}
+
+.detailCard {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 580px;
+  font-size: 24px;
+  gap: 5px;
+  align-items: center;
+}
+
+.detailEpisodesTitle {
+  font-size: 24px;
+}
+
+.detailEpisodes {
+  display: flex;
+  flex-direction: column;
+}

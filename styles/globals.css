@@ -13,3 +13,9 @@ body {
   color: 0, 0, 0;
   background: rgb(var(--background-start-rgb));
 }
+
+button {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 5px 10px;
+}

@@ -19,3 +19,22 @@ export interface HomeProps {
   totalPages: number;
   error: string;
 }
+
+export interface EpisodeInfo {
+  id: number;
+  name: string;
+  air_date: string;
+  episode: string;
+  characters: string[];
+  url: string;
+  created: string;
+}
+
+export interface DetailProps {
+  id: number;
+  name: string;
+  image: string;
+  status: string;
+  species: string;
+  episodeInfo: EpisodeInfo[];
+}

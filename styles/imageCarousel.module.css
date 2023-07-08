@@ -1,0 +1,19 @@
+.carousel {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 40px;
+}
+
+.carouselSlide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.control {
+  display: flex;
+  align-self: flex-end;
+  border: 1px solid black;
+}

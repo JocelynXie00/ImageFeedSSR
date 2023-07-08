@@ -3,7 +3,12 @@ import Image from "next/image";
 import { CharacterInfo } from "../../../Interface";
 import { Paper, Box, Typography } from "@mui/material";
 import styles from "../../../styles/Character.module.css";
+import { useRouter } from "next/router";
 const Character: React.FC<CharacterInfo> = ({ id, name, image }) => {
+  const router = useRouter();
+  const handleDetail = (id: number) => {
+    router.push(`/detail?id=${id}`);
+  };
   return (
     <Paper className={styles.container} elevation={8}>
       <Box
@@ -31,7 +36,7 @@ const Character: React.FC<CharacterInfo> = ({ id, name, image }) => {
             blurDataURL={image}
           />
         </Box>
-        <Box p={2}>
+        <Box p={2} onClick={() => handleDetail(id)}>
           <Typography variant="subtitle1" align="center">
             {name}
           </Typography>
